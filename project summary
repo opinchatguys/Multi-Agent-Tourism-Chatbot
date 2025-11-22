@@ -1,0 +1,33 @@
+Project Summary
+
+My approach
+- Built a coordinator `parent_tourism_agent` that interprets free‑text input with `parse_user_query`, then routes to live APIs: `get_coordinates` (Nominatim), `get_weather` (Open‑Meteo), and `get_tourist_places` (Overpass). No LLM knowledge for facts.
+- Enforced real API usage; all outputs are derived from live endpoints.
+- Executed child agents in parallel (weather + places) with timeouts, retries, and a simple circuit breaker for resilience.
+- Returned a friendly, structured response: natural‑language weather summary plus bullet‑listed attractions.
+
+Key decisions
+- Used LangChain to enable clean orchestration and future extensibility around tools and agents.
+- Selected reliable, free APIs: Nominatim for geocoding, Open‑Meteo for weather, Overpass (OpenStreetMap) for tourist places.
+- Implemented geocoding first, as lat/lon is the shared prerequisite for both child agents.
+- Chose Gradio for a friction‑free web UI and straightforward deployment to Hugging Face Spaces.
+- Managed configuration via environment variables (User‑Agent strings), avoiding hardcoded secrets.
+
+Challenges
+- Crafting a correct Overpass QL query for tourism=attraction within a 20km radius and parsing heterogeneous OSM tags to extract place names.
+- Handling API rate limits and Nominatim’s User‑Agent requirements; ensuring geocoding failures return “I don't think this place exists.” instead of raw exceptions.
+- Aligning precipitation probability to the current time slot and keeping outputs clear and consistent.
+
+Workflow (end‑to‑end)
+- User enters a query (e.g., “I’m going to Bangalore!”).
+- `parse_user_query` infers intent (“weather”, “places”, or both) and extracts destination text.
+- `get_coordinates` resolves destination → lat/lon via Nominatim; on failure, immediately respond with “I don't think this place exists.”
+- In parallel (for “both”): `get_weather` fetches current temperature and rain probability; `get_tourist_places` fetches up to 5 nearby attractions via Overpass.
+- Results are compiled and formatted:
+  - Weather: “24°C with a chance of 35% to rain.”
+  - Places: bullet list of attractions.
+- Final response is returned via the Gradio UI.
+
+Deployment
+- Gradio interface wraps `parent_tourism_agent`, exposing one textbox for input and a response area.
+- Ready for Hugging Face Spaces: install dependencies, set `NOMINATIM_USER_AGENT` and `OVERPASS_USER_AGENT`, run the Gradio app to serve the UI.
