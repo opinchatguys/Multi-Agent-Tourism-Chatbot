@@ -1,4 +1,4 @@
-# 🌍 Multi-Agent Tourism Chatbot
+#  Multi-Agent Tourism Chatbot
 
 A smart travel assistant powered by a multi-agent system that provides real-time weather information and tourist attractions for any destination worldwide.
 
@@ -6,17 +6,17 @@ A smart travel assistant powered by a multi-agent system that provides real-time
 [![Gradio](https://img.shields.io/badge/Gradio-Chat-orange.svg)](https://gradio.app/)
 [![LangChain](https://img.shields.io/badge/LangChain-Orchestration-green.svg)](https://langchain.com/)
 
-## ✨ Features
+##  Features
 
-- 🤖 **Intelligent Chatbot Interface** - Natural conversation flow with chat history
-- 🌦️ **Real-Time Weather Data** - Current temperature and precipitation probability via Open-Meteo API
-- 🏛️ **Tourist Attractions** - Top 5 attractions near any destination using OpenStreetMap data
-- 🌐 **Smart Geocoding** - Converts place names to coordinates using Nominatim
-- ⚡ **Parallel Processing** - Weather and places fetched simultaneously for faster responses
-- 🔄 **Resilient Architecture** - Built-in retries, timeouts, and circuit breakers
-- 📝 **Free-Text Input** - Understands casual queries like "I'm going to Paris!" or "Weather in Tokyo"
+-  **Intelligent Chatbot Interface** - Natural conversation flow with chat history
+-  **Real-Time Weather Data** - Current temperature and precipitation probability via Open-Meteo API
+-  **Tourist Attractions** - Top 5 attractions near any destination using OpenStreetMap data
+-  **Smart Geocoding** - Converts place names to coordinates using Nominatim
+-  **Parallel Processing** - Weather and places fetched simultaneously for faster responses
+-  **Resilient Architecture** - Built-in retries, timeouts, and circuit breakers
+-  **Free-Text Input** - Understands casual queries like "I'm going to Paris!" or "Weather in Tokyo"
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -27,7 +27,7 @@ A smart travel assistant powered by a multi-agent system that provides real-time
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/multi-agent-tourism.git
+git clone https://github.com/opinchatguys/multi-agent-tourism.git
 cd multi-agent-tourism
 ```
 
@@ -57,7 +57,7 @@ python app.py
 
 5. Open your browser at the URL shown (usually `http://127.0.0.1:7860`)
 
-## 💬 Usage Examples
+##  Usage Examples
 
 Try these queries in the chatbot:
 
@@ -67,7 +67,7 @@ Try these queries in the chatbot:
 - "Tell me about London"
 - "Things to do in New York"
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Multi-Agent System
 
@@ -92,7 +92,7 @@ User Input → Parent Agent → Geocoding (Nominatim)
 - **`get_weather`** - Weather data from Open-Meteo with retry logic
 - **`get_tourist_places`** - Attractions from Overpass API with circuit breaker
 
-## 🔧 Technical Details
+##  Technical Details
 
 ### APIs Used
 
@@ -102,10 +102,10 @@ User Input → Parent Agent → Geocoding (Nominatim)
 
 ### Resilience Features
 
-- ⏱️ Configurable timeouts (10-20s per API)
-- 🔁 Retry with exponential backoff (3 attempts)
-- 🛡️ Circuit breaker pattern (30s cooldown after 3 failures)
-- 🔀 Parallel execution for weather and places (ThreadPoolExecutor)
+-  Configurable timeouts (10-20s per API)
+-  Retry with exponential backoff (3 attempts)
+-  Circuit breaker pattern (30s cooldown after 3 failures)
+-  Parallel execution for weather and places (ThreadPoolExecutor)
 
 ### Response Formatting
 
@@ -123,7 +123,7 @@ multi-agent-tourism/
 └── README.md              # This file
 ```
 
-## 🌐 Deployment
+##  Deployment
 
 ### Hugging Face Spaces
 
@@ -143,7 +143,7 @@ Deploy for free at [Hugging Face Spaces](https://huggingface.co/spaces):
 - **Railway.app:** GitHub-based deployment
 - **Self-hosted:** Any VPS with Python 3.10+
 
-## 🛠️ Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -154,11 +154,11 @@ Deploy for free at [Hugging Face Spaces](https://huggingface.co/spaces):
 
 **Note:** User-Agent must include a valid email per API usage policies.
 
-## 📝 License
+##  License
 
 This project is open source and available under the MIT License.
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Feel free to:
 
@@ -166,11 +166,11 @@ Contributions are welcome! Feel free to:
 - Suggest new features
 - Submit pull requests
 
-## 👨‍💻 Author
+##  Author
 
 Built with ❤️ using LangChain, Gradio, and free public APIs.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Open-Meteo](https://open-meteo.com/) - Free weather API
 - [OpenStreetMap](https://www.openstreetmap.org/) - Geocoding and places data
@@ -180,3 +180,4 @@ Built with ❤️ using LangChain, Gradio, and free public APIs.
 ---
 
 **Live Demo:** [Try it on Hugging Face Spaces](https://huggingface.co/spaces/anwiwish/multi-agent-tourism)
+
